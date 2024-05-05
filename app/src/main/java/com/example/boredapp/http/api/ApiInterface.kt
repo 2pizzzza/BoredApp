@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ApiInterface {
     @GET("activity")
-    suspend fun getActivity() : Call<Activity>
+    suspend fun getActivity() : Activity
 }
