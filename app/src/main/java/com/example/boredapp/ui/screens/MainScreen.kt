@@ -15,7 +15,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.boredapp.MainViewModel
+import com.example.boredapp.ui.components.ItemMainScreen
 
+@Preview(showSystemUi = true)
 @Composable
 fun MainScreen(
     viewModel: MainViewModel= viewModel()
@@ -28,22 +30,22 @@ fun MainScreen(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(text = "Your Activity", fontSize = 40.sp)
             Text(text = "Activity")
-            OutlinedTextField(value = viewModel.activ.value!!.activity, onValueChange = {}, readOnly = true, label = {})
+            ItemMainScreen(value = viewModel.activ.value!!.activity)
 
             Text(text = "Type")
-            OutlinedTextField(value = viewModel.activ.value!!.type, onValueChange = {}, readOnly = true, label = {})
+            ItemMainScreen(value = viewModel.activ.value!!.type)
 
             Text(text = "Participants")
-            OutlinedTextField(value = "${viewModel.activ.value!!.participants}", onValueChange = {}, readOnly = true, label = {})
+            ItemMainScreen(value = "${viewModel.activ.value!!.participants}")
 
             Text(text = "Price")
-            OutlinedTextField(value = "${viewModel.activ.value!!.price}", onValueChange = {}, readOnly = true, label = {})
+            ItemMainScreen(value = "${viewModel.activ.value!!.price}")
 
             Text(text = "Accessibility")
-            OutlinedTextField(value = viewModel.activ.value!!.accessibility, onValueChange = {}, readOnly = true, label = {})
+            ItemMainScreen(value = viewModel.activ.value!!.accessibility)
 
             Text(text = "Link")
-            OutlinedTextField(value = viewModel.activ.value!!.link, onValueChange = {}, readOnly = true, label = {})
+            ItemMainScreen(value = viewModel.activ.value!!.link)
 
             Button(
                 modifier = Modifier
