@@ -20,14 +20,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.boredapp.R
 
 val imgList = listOf(
-    R.drawable.splash_dog,
-    R.drawable.ic_launcher_background,
-    R.drawable.splash_dog
+    PagerItemData(R.drawable.splash_dog, "Книги это наше всё!"),
+    PagerItemData(R.drawable.ic_launcher_background, "Книги это наше всё!"),
+    PagerItemData(R.drawable.splash_dog, "Книги это наше всё!")
 )
 
 @Composable
@@ -40,19 +43,31 @@ fun PagerItem(
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        Image(
-            painter = painterResource(id = imgList[page]),
-            contentDescription = ""
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painter = painterResource(id = imgList[page].img),
+                contentDescription = ""
+            )
+            Text(
+                text = imgList[page].text,
+                style = TextStyle(
+                    fontSize = 25.sp,
+                    fontWeight = FontWeight.Normal
+                )
+            )
+        }
+
         Button(
             modifier = Modifier
                 .alpha(
-                    when(page){
-                        2-> 1f
+                    when (page) {
+                        2 -> 1f
                         else -> 0f
                     }
                 )
-                .padding(top = 700.dp),
+                .padding(top = 500.dp),
             onClick = {
                 onClickToScreen()
             }) {
@@ -84,3 +99,8 @@ fun PagerPreview() {
         }
     }
 }
+
+data class PagerItemData(
+    val img: Int,
+    val text: String
+)
