@@ -14,9 +14,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
-fun ItemMainScreen(value:String) {
+fun ItemMainScreen(
+    value: String,
+    modifier: Modifier = Modifier,
+) {
     Box(
         modifier = Modifier
             .padding()
@@ -25,11 +29,12 @@ fun ItemMainScreen(value:String) {
             .border(1.dp, Color.Black)
             .background(Color.White),
         contentAlignment = Alignment.Center
-    ){
+    ) {
         Text(
             text = value,
             style = TextStyle(
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontSize = 25.sp
             )
         )
     }

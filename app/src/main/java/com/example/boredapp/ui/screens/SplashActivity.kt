@@ -43,13 +43,6 @@ class SplashActivity : ComponentActivity() {
     @Preview(showSystemUi = true)
     @Composable
     private fun SplashScreen() {
-        Image(
-            modifier = Modifier
-                .fillMaxSize(),
-            contentScale = ContentScale.FillBounds,
-            painter = painterResource(id = R.drawable.bg_img),
-            contentDescription = "bg_img"
-        )
         val pageState = rememberPagerState(pageCount = { 3 })
         Box(
             contentAlignment = Alignment.Center,
